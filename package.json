@@ -1,0 +1,51 @@
+{
+  "private": true,
+  "scripts": {
+    "start": "umi dev",
+    "build": "umi build",
+    "postinstall": "umi generate tmp",
+    "lint": "npm run eslint && npm run stylelint",
+    "eslint": "eslint --fix --ext .js,.jsx,.ts,.tsx ./",
+    "stylelint": "stylelint --fix ./**/*.less",
+    "prettier": "prettier --write '**/*.{js,jsx,tsx,ts,less,md,json}'",
+    "test": "umi-test",
+    "test:coverage": "umi-test --coverage"
+  },
+  "gitHooks": {
+    "pre-commit": "lint-staged"
+  },
+  "lint-staged": {
+    "*.{js,jsx,less,md,json}": [
+      "prettier --write"
+    ],
+    "*.ts?(x)": [
+      "prettier --parser=typescript --write"
+    ]
+  },
+  "dependencies": {
+    "@ant-design/pro-layout": "^6.5.0",
+    "@umijs/preset-react": "1.x",
+    "lib-flexible": "^0.3.2",
+    "rc-animate": "^3.1.1",
+    "rc-banner-anim": "^2.4.5",
+    "rc-queue-anim": "^1.8.5",
+    "rc-scroll-anim": "^2.7.6",
+    "rc-texty": "^0.2.0",
+    "rc-tween-one": "^2.7.3",
+    "umi": "^3.4.7"
+  },
+  "devDependencies": {
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0",
+    "@umijs/fabric": "^2.5.7",
+    "@umijs/test": "^3.4.7",
+    "ahooks": "^2.10.0",
+    "lint-staged": "^10.0.7",
+    "postcss-pxtorem": "5.1.1",
+    "prettier": "^2.2.0",
+    "react": "17.x",
+    "react-dom": "17.x",
+    "typescript": "^4.1.2",
+    "yorkie": "^2.0.0"
+  }
+}

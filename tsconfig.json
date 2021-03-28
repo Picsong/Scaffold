@@ -1,0 +1,39 @@
+{
+  "compilerOptions": {
+    "target": "esnext",// ECMAScript目标版本
+    "module": "esnext",// 指定生成哪个模块系统代码
+    "moduleResolution": "node",// 决定如何处理模块
+    "importHelpers": true,// 从 tslib 导入辅助工具函数
+    "jsx": "react-jsx",// 支持react17新的JSX转换器
+    "esModuleInterop": true,
+    "sourceMap": true,// 生成相应的 .map文件
+    "baseUrl": "./",// 解析非相对模块的基准模块
+    "strict": true,// 严格采取TypeScript规范
+    "paths": {// 模块名到基于 baseUrl的路径映射的列表
+      "@/*": ["src/*"],
+      "@@/*": ["src/.umi/*"]
+    },
+    "allowSyntheticDefaultImports": true,
+    "removeComments": false // 编译出来的js是否显示注释
+  },
+  // 需要编译的文件， 可用include, exclude, files
+  "include": [
+    "mock/**/*",
+    "src/**/*",
+    "config/**/*",
+    ".umirc.ts",
+    "typings.d.ts",
+    ".eslintrc.js"
+  ],
+  "exclude": [
+    "node_modules",
+    "lib",
+    "es",
+    "dist",
+    "typings",
+    "**/__test__",
+    "test",
+    "docs",
+    "tests"
+  ]
+}
