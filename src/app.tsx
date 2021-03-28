@@ -1,7 +1,12 @@
 export { request } from '@/services';
 
 export async function getInitialState() {
-  return {};
+  return {
+    auth: {
+      page1: true,
+      page2: false,
+    },
+  };
 }
 
 export function onRouteChange() {

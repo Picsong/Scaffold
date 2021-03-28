@@ -3,7 +3,7 @@ import { history } from 'umi';
 
 export default function NotFoundPage() {
   return (
-    <div>
+    <div style={{ backgroundColor: 'white' }}>
       <Result
         status="404"
         title="404"

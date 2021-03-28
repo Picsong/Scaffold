@@ -52,49 +52,40 @@ export default defineConfig({
       ],
     },
     {
-      //PC网站的在这里
-      path: '/pc',
-      component: '@/pages/index',
-      layout: false,
-      routes: [
-        { path: '/pc', exact: true, component: '@/pages/Home/index' },
-        { path: '/pc/test', exact: true, component: '@/pages/Test/index' },
-      ],
-    },
-    { path: '/404', component: '@/pages/404', layout: false },
-    {
       //后台系统的页面
-      path: '/',
+      path: '/admin',
       component: '@/pages/Admin/Wrap/index',
       flatMenu: true,
       routes: [
         {
           //后台首页
-          path: '/',
+          path: '/admin',
           exact: true,
           component: '@/pages/Admin/index',
         },
         {
           //后台系统列表页面
-          path: '/list',
+          path: '/admin/list',
           name: '列表',
           icon: 'logout',
           component: '@/pages/Admin/Wrap/index',
           routes: [
             {
-              path: '/list/page1',
+              path: '/admin/list/page1',
               exact: true,
               component: '@/pages/Admin/ListPage1/index',
               menu: { name: '页面1' },
+              access: 'page1',
             },
             {
-              path: '/list/page2',
+              path: '/admin/list/page2',
               exact: true,
               component: '@/pages/Admin/ListPage2/index',
               menu: { name: '页面2' },
+              access: 'page2',
             },
             {
-              path: '/list/page3',
+              path: '/admin/list/page3',
               exact: true,
               hideInMenu: true,
               menuRender: false,
@@ -104,9 +95,20 @@ export default defineConfig({
             { component: '@/pages/404' },
           ],
         },
-        { component: '@/pages/404' },
+      ],
+    },
+    { path: '/404', component: '@/pages/404', layout: false },
+    {
+      //PC网站的在这里
+      path: '/',
+      component: '@/pages/index',
+      layout: false,
+      routes: [
+        { path: '/', exact: true, component: '@/pages/Home/index' },
+        { path: '/test', exact: true, component: '@/pages/Test/index' },
+        { redirect: '/404' },
       ],
     },
   ],
-  fastRefresh: {},
+  // fastRefresh: {},
 });
