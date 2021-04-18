@@ -1,3 +1,7 @@
+import {Button} from 'antd-mobile';
+
 export default function MHomePage() {
-  return <div>移动首页</div>;
+  return <div>
+    <Button>喝红酒</Button>
+  </div>;
 }

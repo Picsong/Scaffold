@@ -17,7 +17,7 @@ export default defineConfig({
     px2rem({
       rootValue: 37.5, //这里根据设计稿大小配置,一般是375
       propList: ['*'],
-      exclude: /global|components|pages|\/node_modules\/antd\//,
+      exclude: /global|components|pages|\/antd\/|braft-editor/,
     }),
   ],
   hash: true,
