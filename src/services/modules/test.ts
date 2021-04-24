@@ -7,13 +7,10 @@ export const getBaseData1: IRequestMethod = (options: any) =>
     ...options,
   });
 
-export const getBaseData2: IRequestMethod = (options: any) =>
-  request('/base2', {
-    method: 'get',
+export const uploadFile: IRequestMethod = (options: any) =>
+  request('/upload', {
+    method: 'post',
     ...options,
   });
-export const getBaseAuth: IRequestMethod = (options: any) =>
-  request('/auth', {
-    method: 'get',
-    ...options,
-  });
+
+
