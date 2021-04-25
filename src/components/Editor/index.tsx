@@ -1,4 +1,4 @@
-import type { RefObject} from 'react';
+import type { RefObject } from 'react';
 import React, { useCallback, useState, createRef, forwardRef, useImperativeHandle } from 'react';
 import type { EditorState } from 'braft-editor';
 import BraftEditor from 'braft-editor';
@@ -7,7 +7,7 @@ import { preview } from '@/helpers/editor-preview';
 import 'braft-editor/dist/index.css';
 
 interface IProps {
-  editorContent: string;
+  editorContent?: string;
 }
 export interface EditorInstance {
   editorInstance: RefObject<BraftEditor>;
@@ -22,7 +22,9 @@ const Editor = forwardRef(({ editorContent }: IProps, ref) => {
   const editorRef = createRef<BraftEditor>();
 
   // 设置初始值
-  const [editorState, setEditorState] = useState<EditorState>(BraftEditor.createEditorState(editorContent));
+  const [editorState, setEditorState] = useState<EditorState>(
+    BraftEditor.createEditorState(editorContent),
+  );
 
   const onChange = useCallback((state: EditorState) => setEditorState(state), []);
 

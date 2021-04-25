@@ -1,7 +1,9 @@
 export enum Types {
   Token = 'APP_TOKEN',
   IsLogin = 'IS_LOGIN',
-  NewsDetails = 'NEWS_DETAILS',
+  UserName = 'USER_NAME',
+  Project = 'PROJECT',
+  // NewsDetails = 'NEWS_DETAILS',
 }
 
 export type StorageType = 'session' | 'local';
@@ -20,9 +22,9 @@ export const setStorage = (key: Types, value: any, type?: StorageType) => {
   return window.sessionStorage.setItem(key, JSON.stringify(value));
 };
 
-export const removeStorage = (key?: Types, type?: StorageType) => {
+export const removeStorage = (key: Types, type?: StorageType) => {
   if (type === 'local') {
-    return key ? window.localStorage.removeItem(key) : window.localStorage.clear();
+    return window.localStorage.removeItem(key);
   }
-  return key ? window.sessionStorage.removeItem(key) : window.sessionStorage.clear();
+  return window.sessionStorage.removeItem(key);
 };

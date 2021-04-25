@@ -41,6 +41,7 @@ export default defineConfig({
   },
   title: '网页标题',
   routes: [
+    { path: '/login', component: '@/pages/Login/index', layout: false },
     {
       //移动端页面在这里
       path: '/m',
@@ -54,7 +55,7 @@ export default defineConfig({
     {
       //后台系统的页面
       path: '/admin',
-      component: '@/pages/Admin/Wrap/index',
+      component: '@/wrappers/LoginWrapper',
       flatMenu: true,
       routes: [
         {
@@ -64,33 +65,33 @@ export default defineConfig({
           component: '@/pages/Admin/index',
         },
         {
-          //后台系统列表页面
+          path: '/admin/user',
+          name: '用户管理',
+          icon: 'user',
+          component: '@/layouts/index',
+          routes: [
+            {
+              path: '/admin/user/account',
+              exact: true,
+              component: '@/pages/Admin/AccountManagement/index',
+              menu: { name: '账号管理' },
+              // access: 'page1',
+            },
+            { component: '@/pages/404' },
+          ],
+        },
+        {
           path: '/admin/list',
-          name: '列表',
+          name: '网站管理',
           icon: 'logout',
-          component: '@/pages/Admin/Wrap/index',
+          component: '@/layouts/index',
           routes: [
             {
               path: '/admin/list/page1',
               exact: true,
               component: '@/pages/Admin/ListPage1/index',
-              menu: { name: '页面1' },
-              access: 'page1',
-            },
-            {
-              path: '/admin/list/page2',
-              exact: true,
-              component: '@/pages/Admin/ListPage2/index',
-              menu: { name: '页面2' },
-              access: 'page2',
-            },
-            {
-              path: '/admin/list/page3',
-              exact: true,
-              hideInMenu: true,
-              menuRender: false,
-              component: '@/pages/Admin/ListPage3/index',
-              menu: { name: '页面3' },
+              menu: { name: '轮播图管理' },
+              // access: 'page1',
             },
             { component: '@/pages/404' },
           ],
@@ -110,5 +111,5 @@ export default defineConfig({
       ],
     },
   ],
-  // fastRefresh: {},
+  fastRefresh: {},
 });

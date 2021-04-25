@@ -1,9 +1,12 @@
+import type { FC, ComponentProps } from 'react';
 import React from 'react';
 import { message } from 'antd';
 import { ProFormUploadDragger } from '@ant-design/pro-form';
 import { getStorage, Types } from '@/helpers/storage';
 
-const FormUpload = (props) => {
+type Props = ComponentProps<typeof ProFormUploadDragger>;
+
+const FormUpload: FC<Props> = (props) => {
   // 上传图片预览
   const onPreview = (file) => {
     // 上传中
@@ -33,7 +36,8 @@ const FormUpload = (props) => {
               const boo = value?.[0]?.response?.data?.url || value?.[0]?.url;
               return boo ? Promise.resolve() : Promise.reject('请重新上传图片');
             }
-            return Promise.reject('请上传图片');
+            if (props.required) return Promise.reject('请上传图片');
+            return Promise.resolve();
           },
         },
       ]}
@@ -42,7 +46,7 @@ const FormUpload = (props) => {
         name: 'file',
         listType: 'picture',
         headers: {
-          Authorization: `Bearer ${getStorage(Types.Token)}`,
+          Authorization: `Bearer ${getStorage(Types.Token, 'local')}`,
         },
         onPreview: (file) => onPreview(file),
         ...props.fieldProps,

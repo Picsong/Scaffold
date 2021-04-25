@@ -1,3 +1,5 @@
+import { history } from 'umi';
+
 export { request } from '@/services';
 
 export async function getInitialState() {
@@ -17,7 +19,9 @@ export function onRouteChange() {
 export const layout = () => {
   return {
     logout() {
-      console.log('退出');
+      sessionStorage.clear();
+      localStorage.clear();
+      history.replace('/login');
     },
   };
 };
