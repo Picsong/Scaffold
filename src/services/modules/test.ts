@@ -12,5 +12,3 @@ export const uploadFile: IRequestMethod = (options: any) =>
     method: 'post',
     ...options,
   });
-
-

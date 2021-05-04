@@ -1,3 +1,3 @@
 export type LoginRequired = 'LOGIN_REQUIRED';
 
-export interface IAuth {}
+export type IAuth = Record<string, boolean>;

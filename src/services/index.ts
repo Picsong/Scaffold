@@ -25,7 +25,7 @@ export const request: RequestConfig = {
   timeout: 30000,
   prefix: '/api',
   headers: {
-    project: '1',// 对应后台项目1，腾云忆想
+    project: '1', // 对应后台项目1，腾云忆想
   },
   requestInterceptors: [
     (url, options) => {

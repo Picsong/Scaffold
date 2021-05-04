@@ -43,7 +43,14 @@ export default function BannerPage() {
   const actionRef = useRef<ActionType>();
 
   // 自定义弹窗，内部维护了展示状态，编辑的id，表单实例（从antd form得到的），打开关闭方法。
-  const { modelForm, isModalVisible, itemId, setIsModalVisible, showModal, onCancel } = useModal<IBanner>();
+  const {
+    modelForm,
+    isModalVisible,
+    itemId,
+    setIsModalVisible,
+    showModal,
+    onCancel,
+  } = useModal<IBanner>();
 
   // 编辑按钮click
   const editorClick = (record: IBanner) => {
@@ -286,8 +293,22 @@ export default function BannerPage() {
           />
         </ProForm.Group>
         <ProForm.Group>
-          <ProFormText width="m" name="detailUrl" label="详情地址" placeholder="请输入" required rules={addressRule} />
-          <ProFormText width="m" name="sort" label="排序" placeholder="请输入" required rules={sortRule} />
+          <ProFormText
+            width="m"
+            name="detailUrl"
+            label="详情地址"
+            placeholder="请输入"
+            required
+            rules={addressRule}
+          />
+          <ProFormText
+            width="m"
+            name="sort"
+            label="排序"
+            placeholder="请输入"
+            required
+            rules={sortRule}
+          />
         </ProForm.Group>
         <FormUpload />
       </ModalForm>

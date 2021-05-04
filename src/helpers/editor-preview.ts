@@ -1,5 +1,5 @@
-  const buildPreviewHtml = (htmlString: string) => {
-    return `
+const buildPreviewHtml = (htmlString: string) => {
+  return `
       <!Doctype html>
       <html lang='en'>
         <head>
@@ -52,19 +52,19 @@
         </body>
       </html>
     `;
-  };
+};
 
-  /**
-   * 富文本编辑器预览方法
-   * @param {string} htmlString 由富文本编辑器内部状态 editorState.toHTML()或者editorState.toRAW()返回的字符串
-   * https://www.yuque.com/braft-editor/be/lzwpnr#9a27e818   文档地址
-   */
-  export const preview = (htmlString: string) => {
-      if (window.previewWindow) {
-        window.previewWindow.close();
-      }
+/**
+ * 富文本编辑器预览方法
+ * @param {string} htmlString 由富文本编辑器内部状态 editorState.toHTML()或者editorState.toRAW()返回的字符串
+ * https://www.yuque.com/braft-editor/be/lzwpnr#9a27e818   文档地址
+ */
+export const preview = (htmlString: string) => {
+  if (window.previewWindow) {
+    window.previewWindow.close();
+  }
 
-      window.previewWindow = window.open();
-      window.previewWindow.document.write(buildPreviewHtml(htmlString));
-      window.previewWindow.document.close();
-    };
+  window.previewWindow = window.open();
+  window.previewWindow.document.write(buildPreviewHtml(htmlString));
+  window.previewWindow.document.close();
+};
