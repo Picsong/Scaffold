@@ -30,10 +30,11 @@ export default function useCountDown({
   const run = useCallback(() => {
     if (timer) return;
     setFlag(false);
+
     timer = setInterval(() => {
       // 必须使用回调函数的更新方式更新count值，不然会只更新一次，就停止。
       setCount((c) => {
-        if (c === 0) {
+        if (c == 0) {
           if (timer) {
             clearInterval(timer);
             timer = null;

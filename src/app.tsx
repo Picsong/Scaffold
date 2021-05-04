@@ -6,7 +6,7 @@ export async function getInitialState() {
   return {
     auth: {
       page1: true,
-      page2: false,
+      page2: false
     },
   };
 }
@@ -16,12 +16,12 @@ export function onRouteChange() {
   document.documentElement.scrollTop = 0;
 }
 
-export const layout = () => {
+export const layout =()=> {
   return {
     logout() {
-      sessionStorage.clear();
+          sessionStorage.clear();
       localStorage.clear();
-      history.replace('/login');
+        history.replace('/login');
     },
   };
 };
