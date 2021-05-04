@@ -13,11 +13,20 @@ export interface IUser {
   name: string; // 姓名
   role: 1 | 2 | 3; // 角色
   project: '1' | '2' | '3'; // 项目
-  avatar_url: string; // 头像
+  avatar_url: ImageUrl; // 头像
   updatedAt: string; // 修改时间
   createdAt: string; // 创建时间
 }
 
+type ImageUrl =
+  | string
+  | {
+      response: { data: { url: string } };
+      url?: string;
+      uid?: number;
+      status?: string;
+      name?: string;
+    }[];
 export default function UserPage() {
   // 表格实例--控制重新获取数据等
   const actionRef = useRef<ActionType>();
@@ -44,8 +53,8 @@ export default function UserPage() {
               url: record.avatar_url,
               name: '用户头像',
             },
-          ] as any)
-        : null,
+          ] as ImageUrl)
+        : '',
     });
   };
 
@@ -189,7 +198,7 @@ export default function UserPage() {
           }
 
           try {
-            const result = await getUsers<IResult>(params);
+            const result = await getUsers<IResult>({ data: params });
             return {
               success: result.success,
               total: result?.data?.total ?? 0,
@@ -197,6 +206,7 @@ export default function UserPage() {
             };
           } catch (error) {
             if (error.name !== 'BizError') message.error('系统异常');
+            return { success: false, total: 0, data: [] };
           }
         }}
         pagination={{

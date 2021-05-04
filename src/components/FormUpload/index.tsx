@@ -8,7 +8,7 @@ type Props = ComponentProps<typeof ProFormUploadDragger>;
 
 const FormUpload: FC<Props> = (props) => {
   // 上传图片预览
-  const onPreview = (file) => {
+  const onPreview = (file: any) => {
     // 上传中
     if (file.status === 'uploading') return message.error('上传中！');
     // 上传失败
@@ -34,9 +34,9 @@ const FormUpload: FC<Props> = (props) => {
           validator(rule, value) {
             if (value?.length > 0) {
               const boo = value?.[0]?.response?.data?.url || value?.[0]?.url;
-              return boo ? Promise.resolve() : Promise.reject('请重新上传图片');
+              return boo ? Promise.resolve() : Promise.reject(new Error('请重新上传图片'));
             }
-            if (props.required) return Promise.reject('请上传图片');
+            if (props.required) return Promise.reject(new Error('请上传图片'));
             return Promise.resolve();
           },
         },
