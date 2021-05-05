@@ -10,7 +10,7 @@
     "eslint": "eslint --fix --ext .js,.jsx,.ts,.tsx ./",
     "test": "umi-test",
     "test:coverage": "umi-test --coverage",
-    "pre-commit": "lint-staged"
+    "precommit": "lint-staged"
   },
   "gitHooks": {
     "pre-commit": "lint-staged"
