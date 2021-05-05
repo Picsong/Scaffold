@@ -4,7 +4,7 @@
     "start": "umi dev",
     "build": "umi build",
     "postinstall": "umi generate tmp",
-    "lint": "npm run eslint && npm run stylelint && npm run prettier",
+    "lint": "npm run stylelint && npm run prettier && npm run eslint",
     "stylelint": "stylelint --fix '**/*.{vue,html,css,less,scss,sass}'",
     "prettier": "prettier --write '**/*.{js,jsx,tsx,ts,less,md,json}'",
     "eslint": "eslint --fix --ext .js,.jsx,.ts,.tsx ./",
@@ -16,19 +16,19 @@
     "pre-commit": "lint-staged"
   },
   "lint-staged": {
-    "*.{md,vue,json,html,css,less,scss}": [
+    "src/**/*.{md,vue,json,html,css,less,scss}": [
+      "prettier --write",
       "stylelint --fix",
-      "prettier --write",
       "git add"
     ],
-    "*.{js,jsx,vue}": [
-      "eslint --fix",
+    "src/**/*.{js,jsx,vue}": [
       "prettier --write",
+      "eslint --fix",
       "git add"
     ],
-    "*.ts?(x)": [
-      "eslint --fix",
+    "src/**/*.ts?(x)": [
       "prettier --parser=typescript --write",
+      "eslint --fix",
       "git add"
     ]
   },
