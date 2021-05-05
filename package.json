@@ -10,17 +10,26 @@
     "eslint": "eslint --fix --ext .js,.jsx,.ts,.tsx ./",
     "test": "umi-test",
     "test:coverage": "umi-test --coverage",
-    "precommit": "lint-staged"
+    "pre-commit": "lint-staged"
   },
   "gitHooks": {
     "pre-commit": "lint-staged"
   },
   "lint-staged": {
-    "**/*.{vue,html,css,less,scss,sass}": "stylelint --fix",
-    "**/*.{js,jsx,md,vue,json,html,css,less,scss}": "prettier --write",
+    "*.{md,vue,json,html,css,less,scss}": [
+      "stylelint --fix",
+      "prettier --write",
+      "git add"
+    ],
+    "*.{js,jsx,vue}": [
+      "eslint --fix",
+      "prettier --write",
+      "git add"
+    ],
     "*.ts?(x)": [
+      "eslint --fix",
       "prettier --parser=typescript --write",
-      "eslint --fix"
+      "git add"
     ]
   },
   "dependencies": {
