@@ -4,7 +4,7 @@
     "start": "umi dev",
     "build": "umi build",
     "postinstall": "umi generate tmp",
-    "lint": "npm run eslint && npm run stylelint",
+    "lint": "npm run eslint && npm run stylelint && npm run prettier",
     "stylelint": "stylelint --fix '**/*.{vue,html,css,less,scss,sass}'",
     "prettier": "prettier --write '**/*.{js,jsx,tsx,ts,less,md,json}'",
     "eslint": "eslint --fix --ext .js,.jsx,.ts,.tsx ./",
