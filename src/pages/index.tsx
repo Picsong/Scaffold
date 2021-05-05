@@ -8,7 +8,7 @@ const IndexPage: FC = ({ children }) => {
   return (
     <div className={styles.layoutWrap}>
       <Header />
-      <div style={{ flex: 1 }}>{children}</div>
+        <div style={{ flex: 1 }}>{children}</div>
       <Footer />
     </div>
   );

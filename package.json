@@ -9,7 +9,8 @@
     "prettier": "prettier --write '**/*.{js,jsx,tsx,ts,less,md,json}'",
     "eslint": "eslint --fix --ext .js,.jsx,.ts,.tsx ./",
     "test": "umi-test",
-    "test:coverage": "umi-test --coverage"
+    "test:coverage": "umi-test --coverage",
+    "precommit": "lint-staged"
   },
   "gitHooks": {
     "pre-commit": "lint-staged"

@@ -4,8 +4,8 @@ export { request } from '@/services';
 export async function getInitialState() {
   return {
     auth: {
-      page1: true,
-      page2: false,
+      page1:true,
+      page2: false
     },
   };
 }
